@@ -16,7 +16,6 @@ staged as (
     from  source 
 )
 
-select * from staged 
-
+select * from staged
 
 
