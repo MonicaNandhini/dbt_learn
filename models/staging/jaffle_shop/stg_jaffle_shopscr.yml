@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: jaffle_shop1
+  - name: jaffle_shop
     database: raw
     schema: jaffle_shop
     tables:
@@ -11,4 +11,10 @@ sources:
             tests:
               - unique
               - not_null
-      
+            
+      - name: orders
+        columns:
+          - name: id
+            tests:
+              - unique              
+              - not_null
