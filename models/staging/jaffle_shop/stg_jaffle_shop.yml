@@ -2,24 +2,32 @@ version: 2
 
 models:
   - name: stg_customer
+    description: Staged customer data from our jaffle shop app.
     columns: 
       - name: customer_id
+        description: The primary key for customers.
         tests:
           - unique
           - not_null
 
   - name: st_order
-    columns:
+    description: Staged order data from our jaffle shop app.
+    columns: 
       - name: order_id
+        description: Primary key for orders.
         tests:
           - unique
           - not_null
-      - name: status
-        tests:
           - accepted_values:
               values:
                 - completed
                 - shipped
                 - returned
+                - placed
                 - return_pending
-                - placed  
+      - name: customer_id
+        description: Foreign key to stg_customer.customer_id.
+        tests:
+          - relationships:
+              to: ref('stg_customer')
+              field: customer_id
