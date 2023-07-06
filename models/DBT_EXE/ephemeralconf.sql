@@ -5,6 +5,6 @@
 }}
 
 with cust as(
-    select * from {{source('DBT_EXE','CUSTOMER')}}
+    select * from {{source('DBT_EXE','orders')}}
 )
-select * from customer 
+select * from cust
